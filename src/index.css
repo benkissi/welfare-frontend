@@ -1,3 +1,120 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .status-badge-pending {
+      border-radius: 20px;
+      background: rgba(255, 159, 67, 0.12);
+      color: #ff9f43;
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+  
+    .status-badge-reviewed {
+      border-radius: 20px;
+      background: rgba(0, 133, 186, 0.12);
+      color: #0085BA;
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+  
+    .status-badge-accepted {
+      border-radius: 20px;
+      background: rgba(40, 199, 111, 0.12);
+      color: #28c76f;
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+  
+    .status-badge-danger {
+      border-radius: 20px;
+      background: rgba(234, 84, 85, 0.12);
+      color: #EA5455;
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+  
+    .status-badge-created {
+      border-radius: 20px;
+      background: rgba(11, 46, 79, 0.12);
+      color: #0B2E4F;
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+  
+    .status-badge-default {
+      border-radius: theme("borderRadius.full");
+      background-color: theme("colors.gray.200");
+      color: theme("colors.gray.500");
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+  
+    .button-success {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      background-color: theme("colors.success");
+      color: theme("colors.white");
+      border-color: theme("colors.success");
+      border-width: 1px;
+      border-style: solid;
+      width: 100%;
+    }
+  
+    .button-success:hover {
+      background-color: theme("colors.green.500") !important;
+      border-color: theme("colors.green.500") !important;
+    }
+  
+    .button-success-outline {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      background-color: theme("colors.white");
+      color: theme("colors.success");
+      border-color: theme("colors.success");
+      border-width: 1px;
+      border-style: solid;
+      width: 100%;
+    }
+  
+    .button-success-outline:hover {
+      background-color: theme("colors.success") !important;
+      border-color: theme("colors.success") !important;
+      color: theme("colors.white") !important;
+    }
+  
+    .button-danger-outline {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      background-color: theme("colors.white");
+      color: theme("colors.red.500");
+      border-color: theme("colors.red.500");
+      border-width: 1px;
+      border-style: solid;
+      width: 100%;
+    }
+  
+    .button-danger-outline:hover {
+      background-color: theme("colors.red.500") !important;
+      border-color: theme("colors.red.500") !important;
+      color: theme("colors.white") !important;
+    }
+  
+    .button-default {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      background-color: theme("colors.white");
+      color: theme("colors.success");
+      padding: theme("spacing.1");
+      border-color: theme("colors.success");
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 0.25rem;
+      width: 100%;
+    }
+  }

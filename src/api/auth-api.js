@@ -55,3 +55,19 @@ export const sendCompanyDetails = async (details) => {
     };
   }
 };
+
+export const getUserCompanyApi = async (userId) => {
+  try {
+    const url = `${COMPANIES}?$or[0][owner]=${userId}&$or[1][operators.userId]=${userId}`;
+    const res = await axios.get(url);
+    return {
+      success: true,
+      data: res.data,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      data: error,
+    };
+  }
+};

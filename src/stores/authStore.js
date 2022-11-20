@@ -1,5 +1,10 @@
 import { defineStore } from "pinia";
-import { login, signUp, sendCompanyDetails } from "../api/index";
+import {
+  login,
+  signUp,
+  sendCompanyDetails,
+  getUserCompanyApi,
+} from "../api/index";
 
 export const useAuthStore = defineStore({
   id: "auth",
@@ -9,19 +14,20 @@ export const useAuthStore = defineStore({
     userToken: "",
     loading: false,
     companyInfo: null,
+    fetchingCompany: false,
   }),
   getters: {
     token: (state) => state.profile?.token,
   },
   actions: {
     async logout() {
-      this.profile = null;
+      this.userToken = "";
+      this.user = null;
     },
 
     async loginUser(email = "", password = "") {
       this.loading = true;
       const res = await login(email, password);
-      console.log("res---", res);
       if (res.success) {
         this.user = res.data.user;
         this.userToken = res.data.accessToken;
@@ -32,11 +38,19 @@ export const useAuthStore = defineStore({
     async signUpUser(details) {
       this.loading = true;
       const res = await signUp(details);
-      console.log("res---", res);
       if (res.success) {
         this.user = res.data;
       }
+      this.fetchUserCompany();
       this.loading = false;
+    },
+    async fetchUserCompany(userId) {
+      this.fetchingCompany = true;
+      const res = await getUserCompanyApi(userId);
+      if (res.success) {
+        this.companyInfo = res.data.data;
+      }
+      this.fetchingCompany = false;
     },
     async addCompanyInfo(details) {
       this.loading = true;
@@ -48,6 +62,6 @@ export const useAuthStore = defineStore({
     },
   },
   persist: {
-    paths: ["user", "userToken"],
+    paths: ["user", "userToken", "companyInfo"],
   },
 });

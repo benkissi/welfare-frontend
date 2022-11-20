@@ -29,9 +29,36 @@ const router = createRouter({
           component: HomeView,
         },
         {
-          path: "/contributions",
-          name: "contributions",
-          component: HomeView,
+          path: "/members",
+          name: "members",
+          component: () => import("../views/dashboard/members/index.vue"),
+          children: [
+            {
+              path: "/members",
+              name: "membersTable",
+              component: () =>
+                import("../views/dashboard/members/MembersTable.vue"),
+            },
+          ],
+        },
+        {
+          path: "/accounts",
+          name: "accounts",
+          component: () => import("../views/dashboard/accounts/Index.vue"),
+          children: [
+            {
+              path: "/accounts",
+              name: "accountsTable",
+              component: () =>
+                import("../views/dashboard/accounts/AccountsTable.vue"),
+            },
+            {
+              path: "/accounts/details/:id",
+              name: "accountDetails",
+              component: () =>
+                import("../views/dashboard/accounts/Details.vue"),
+            },
+          ],
         },
         {
           path: "/settings",

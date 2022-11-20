@@ -19,11 +19,8 @@ const setupAxiosInterceptors = () => {
   axios.interceptors.response.use(
     (response) => response,
     (error) => {
-      const {
-        status,
-        data: { detail },
-      } = error.response;
-      if (status === 422 && detail === "expired token") {
+      const { status } = error.response;
+      if (status === 401) {
         authStore.logout();
       } else {
         throw error;

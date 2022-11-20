@@ -7,9 +7,6 @@
     >
       <div class="h-full w-full" ref="sidebarRef">
         <SideBarVue :navigation="navItems" />
-        <PSidebar v-model:visible="visibleLeft" :baseZIndex="10000">
-          <h3>Left Sidebar</h3>
-        </PSidebar>
       </div>
     </div>
     <div
@@ -23,7 +20,7 @@
           </template>
         </PMenubar>
       </div>
-      <div class="mt-28 flex-1"><router-view></router-view></div>
+      <div class="mt-20 flex-1"><router-view></router-view></div>
     </div>
     <div :class="[showSidePane ? 'block' : 'hidden']">
       <SidePaneVue @close="toggleSidePane">
@@ -37,12 +34,14 @@
 <script>
 import { ref, watchEffect, computed, onMounted, onBeforeUnmount } from "vue";
 import SideBarVue from "../components/layout/SideBar.vue";
+import SidePaneVue from "../components/SidePane.vue";
 import Avatar from "../components/Avatar.vue";
 import navigation from "../navigation";
 export default {
   components: {
     SideBarVue,
     Avatar,
+    SidePaneVue,
   },
   setup() {
     const navItems = ref(navigation);

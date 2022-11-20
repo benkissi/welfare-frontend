@@ -5,8 +5,13 @@ export default [
     icon: "home",
   },
   {
-    name: "Contributions",
-    route: "contributions",
+    name: "Members",
+    route: "membersTable",
+    icon: "people",
+  },
+  {
+    name: "Accounts",
+    route: "accountsTable",
     icon: "payments",
   },
 ];

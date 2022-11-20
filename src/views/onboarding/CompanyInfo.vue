@@ -43,7 +43,7 @@ const handleSubmit = (isFormValid) => {
 };
 
 watchEffect(() => {
-  if (companyInfo) {
+  if (companyInfo.value) {
     router.push({ name: "inviteManagersStep" });
   }
 });

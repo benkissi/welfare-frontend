@@ -1,6 +1,6 @@
 <template>
   <aside class="fixed top-0 left-0 h-full w-[inherit]" aria-label="Sidebar">
-    <div class="overflow-y-auto py-4 px-3 h-full bg-white dark:bg-gray-800">
+    <div class="overflow-y-auto py-4 px-3 h-full bg-white">
       <div class="mb-10 text-black w-full">
         <!-- <LogoVue /> -->
         <img src="logo.png" />
